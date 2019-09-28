@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>JavaScript-Loops-Etc</title>
+        <meta charset="UTF-8">
+        <script>
+            function parseFilenameFromPath(fullPath){
+                var filename = "";
+                if (fullPath != ""){
+                    var i=(fullPath.length -1);
+                    for (i; i>=0; i--){
+                        var charValue = fullPath[i];
+                        if (charValue == "\\" || charValue == "/"){
+                            document.getElementById("output").innerHTML = filename;
+                            exit;
+                        }else {
+                           filename = charValue + filename;
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+	<h2>Find filename</h2>
+        <br>        
+	Enter path and filename:
+        <input id="input" type="text" value=""/>
+        <br>
+        <input type="button" value="Find filename" onclick="parseFilenameFromPath(document.getElementById('input').value)"/>
+        <div id="output"></div>
+    </body>
+</html>
